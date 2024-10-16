@@ -1,18 +1,16 @@
 # Creating the Plutus V3 proposal 297 parameters
 
 ## Generate the cost model file that will be submitted in a proposal
-
-
-```shell
-chmod +x ./scripts/*
-```
-
 ### Produce a cost model file by flattening and merging builtinCostModelC.json and cekMachineCostsC.json
 
 The first script downloads the builtins and CEK machine cost model JSON files from the Plutus repository and merges them into a single JSON file. The resulting file is [pv3-297-params-not-in-order.json](./outputs/pv3-297-params-not-in-order.json). It containins a map of the 297 parameters 
 needed for the PlutusV3 cost model update. The parameters on this file are **NOT** in the correct order. However, one could use this file on 
 a proposal, because it is a map. The node will sort it.  **But it would be very problematic to use it as source to convert it into a list.**
 
+
+```shell
+chmod +x ./scripts/*
+```
 ```shell
 ./scripts/1-merge-builtins-cek.sh
 ```
